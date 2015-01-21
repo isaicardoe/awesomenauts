@@ -9,7 +9,9 @@ game.PlayScreen = me.ScreenObject.extend({
                 me.levelDirector.loadLevel("level01");
                 //you are loading your level on the webpage 
                 
-                var player = me.pool.pull("player");
+                var player = me.pool.pull("player", 0, 420, {});
+                me.game.world.addChild(player, 5);
+                //created a character to pop on the screen 
                 
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();
