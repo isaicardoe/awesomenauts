@@ -14,6 +14,7 @@ game.PlayScreen = me.ScreenObject.extend({
                 //created a character to pop on the screen 
                 
                 me.input.bindKey(me.input.KEY.RIGHT, "right");
+                me.input.bindKey(me.input.KEY.A, "attack");
                 
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();
