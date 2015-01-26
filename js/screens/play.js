@@ -9,11 +9,13 @@ game.PlayScreen = me.ScreenObject.extend({
                 me.levelDirector.loadLevel("level01");
                 //you are loading your level on the webpage 
                 
-                var player = me.pool.pull("player", 0, 420, {});
+                var player = me.pool.pull("player", 0, 0, {});
                 me.game.world.addChild(player, 5);
                 //created a character to pop on the screen 
                 
                 me.input.bindKey(me.input.KEY.RIGHT, "right");
+                me.input.bindKey(me.input.KEY.LEFT, "left");
+                me.input.bindKey(me.input.KEY.SPACE, "jump");
                 me.input.bindKey(me.input.KEY.A, "attack");
                 
 		// add our HUD to the game world
