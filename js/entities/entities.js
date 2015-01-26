@@ -34,12 +34,12 @@ game.PlayerEntity = me.Entity.extend({
         }else{
             this.body.vel.x = 0;
         }
-        
+        //i made the character go left when the left key is pressed
         if(me.input.isKeyPressed("jump") && !this.jumping && !this.falling){
             this.jumping = true;
             this.body.vel.y -= this.body.accel.y * me.timer.tick;
         }
-       
+        //i am making the character jump when i press the space button
         if(me.input.isKeyPressed("attack")){
             if(!this.renderable.isCurrentAnimation("attack")){
                 console.log(this.renderable.isCurrentAnimation("attack"));
