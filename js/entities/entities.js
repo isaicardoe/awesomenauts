@@ -56,25 +56,12 @@ game.PlayerEntity = me.Entity.extend({
             }
         }
         
-        else if(this.body.vel.x !== 0) {
+        else if(this.body.vel.x !== 0 && !this.renderable.isCurrentAnimation("attack")) {
              if(!this.renderable.isCurrentAnimation("walk")){
                  this.renderable.setCurrentAnimation("walk");
         }
-        }else{
+        }else if(!this.renderable.isCurrentAnimation("attack")){
            this.renderable.setCurrentAnimation("idle");
-        }
-       
-        if(me.input.isKeyPressed("attack")){
-            if(!this.renderable.isCurrentAnimation("attack")){
-                console.log(this.renderable.isCurrentAnimation("attack"));
-                //sets the current animation to attack and once that is over
-                //goes back to the idle animation
-                this.renderable.setCurrentAnimation("attack", "idle");
-                //makes it so the next time we start this sequence we begin
-                //from the first animation, not from wherever we left off when we
-                //switched to another animation
-                this.renderable.setAnimationFrame();
-            }
         }
         
         me.collision.check(this, true, this.collideHandler.bind(this), true);
@@ -101,6 +88,10 @@ game.PlayerEntity = me.Entity.extend({
             }else if(xdif<70 && this.facing==='left' && (xdif>0)){
                 this.body.vel.x = 0;
                 this.pos.x = this.pos.x +1;
+            }
+            
+            if(this.renderable.isCurrentAnimation("attack")){
+                response.b.loseHealth();
             }
         }
     }
@@ -184,6 +175,10 @@ game.EnemyBaseEntity = me.Entity.extend({
     
     onCollision: function(){
         
+    },
+    
+    loseHealth: function(){
+        this.health--;
     }
     
 });
