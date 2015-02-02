@@ -13,6 +13,9 @@ game.PlayerEntity = me.Entity.extend({
        this.body.setVelocity(5, 20);
        //keeps track of which direction your character is going
        this.facing = "right";
+       this.now = new Date().getTime();
+       this.lastHit = this.now;
+       this.lastAttack = new Date().getTime();  //Haven't used this
        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
        
        this.renderable.addAnimation("idle", [78]);
@@ -23,6 +26,7 @@ game.PlayerEntity = me.Entity.extend({
     },
     
     update: function(delta){
+        this.now = new Date().getTime();
         if(me.input.isKeyPressed("right")){
             //adds the position of my x by the velocity defined above in
             //setVelocity and multiplying it by me.timer.tick
@@ -90,7 +94,9 @@ game.PlayerEntity = me.Entity.extend({
                 this.pos.x = this.pos.x +1;
             }
             
-            if(this.renderable.isCurrentAnimation("attack")){
+            if(this.renderable.isCurrentAnimation("attack") && this.now-this.lastHit >= 1000){
+                console.log("tower Hit");
+                this.lastHit = this.now;
                 response.b.loseHealth();
             }
         }
