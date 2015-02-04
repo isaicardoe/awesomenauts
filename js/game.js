@@ -40,10 +40,9 @@ var game = {
 	// Run on game resources loaded.
 	"loaded" : function () {
                 me.pool.register("player", game.PlayerEntity, true);
-                //you are making the player appear on screen
                 me.pool.register("EnemyBase", game.EnemyBaseEntity);
                 me.pool.register("PlayerBase", game.PlayerBaseEntity);
-                //the bases we are making to show up on the screen
+                me.pool.register("creep1", game.EnemyCreep, true);
             
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
@@ -52,3 +51,4 @@ var game = {
 		me.state.change(me.state.PLAY);
 	}
 };
+
