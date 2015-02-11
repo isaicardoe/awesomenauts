@@ -198,7 +198,7 @@ game.EnemyCreep = me.Entity.extend({
             spritewidth: "32",
             spriteheight: "64",
             getShape: function(){
-                return (new me.Rect(0, 0, 32, 64)).toPolygon;
+                return (new me.Rect(0, 0, 32, 64)).toPolygon();
             }
         }]);
         this.health = 10;
@@ -213,8 +213,17 @@ game.EnemyCreep = me.Entity.extend({
     
     },
     
-    update: function(){
+    update: function(delta){
         
+        
+        
+        this.body.update(delta);
+        
+        
+        
+        this._super(me.Entity, "update", [delta]);
+        
+        return true;
     }
 });
 
