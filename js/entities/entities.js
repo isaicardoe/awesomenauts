@@ -241,11 +241,16 @@ game.EnemyCreep = me.Entity.extend({
     collideHandler: function(response){
         if(response.b.type==='PlayerBase'){
             this.attacking=true;
-            this.lastAttacking=this.now;
+            //this.lastAttcking=this.now;
             this.body.vel.x = 0;
+            //keeps moving the creep to the right to maintain its position
             this.pos.x = this.pos.x + 1;
+            //checks that it has been at least 1sec since creep hit a base
             if((this.now-this.lastHit >= 1000)){
+                //updates the lasthit timer
                 this.lastHit = this.now;
+                //makes the player base call its loseHealth function and passes
+                //damage of 1
                 response.b.loseHealth(1);
             }
         }
