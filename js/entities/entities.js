@@ -11,6 +11,7 @@ game.PlayerEntity = me.Entity.extend({
             }
         }]);
        this.type = "PlayerEntity";
+       this.health = 20;
        this.body.setVelocity(5, 20);
        //keeps track of which direction your character is going
        this.facing = "right";
@@ -79,7 +80,8 @@ game.PlayerEntity = me.Entity.extend({
     },
     
     loseHealth: function(damage){
-      this.health = this.health - damage;  
+      this.health = this.health - damage;
+      console.log(this.health);
     },
     
     collideHandler: function(response){
@@ -263,11 +265,12 @@ game.EnemyCreep = me.Entity.extend({
             
             this.attacking=true;
             //this.lastAttcking=this.now;
-            this.body.vel.x = 0;
-            //keeps moving the creep to the right to maintain its position
+            
+            
             if(xdif>0){
-                console.log();
+                 //keeps moving the creep to the right to maintain its position
                  this.pos.x = this.pos.x + 1;
+                 this.body.vel.x = 0;
             }
             //checks that it has been at least 1sec since creep hit a something
             if((this.now-this.lastHit >= 1000) && xdif>0){
