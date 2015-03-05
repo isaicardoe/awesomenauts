@@ -96,23 +96,20 @@ game.PlayerEntity = me.Entity.extend({
     
     checkKeyPressesAndMove: function(){
         if(me.input.isKeyPressed("right")){
-            
+            this.moveRight();
         }else if(me.input.isKeyPressed("left")){
-            this.facing = "left";
-            this.body.vel.x -=this.body.accel.x * me.timer.tick;
-            this.flipX(false);
+            this.moveLeft();
         }else{
             this.body.vel.x = 0;
         }
        
         if(me.input.isKeyPressed("jump") && !this.body.jumping && !this.body.falling){
-            this.body.jumping = true;
-            this.body.vel.y -= this.body.accel.y * me.timer.tick;
+            this.jump();
         }  
     },
     
     moveRight: function(){
-        //adds the position of my x by the velocity defined above in
+            //adds the position of my x by the velocity defined above in
             //setVelocity and multiplying it by me.timer.tick
             //me.timer.tick makes movement look smooth
             this.body.vel.x += this.body.accel.x * me.timer.tick;
@@ -121,7 +118,14 @@ game.PlayerEntity = me.Entity.extend({
     },
     
     moveLeft: function(){
-        
+            this.facing = "left";
+            this.body.vel.x -=this.body.accel.x * me.timer.tick;
+            this.flipX(false); 
+    },
+    
+    jump: function(){
+        this.body.jumping = true;
+        this.body.vel.y -= this.body.accel.y * me.timer.tick;
     },
     
     loseHealth: function(damage){
