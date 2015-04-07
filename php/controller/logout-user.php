@@ -3,4 +3,4 @@
 
 	unset($_SESSION["authenticated"]);
 	session_destroy();
-	header("Location: " . $path . "blog.php")
+	header("Location: " . $path . "blog.php");
