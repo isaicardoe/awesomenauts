@@ -10,19 +10,19 @@ this._super(me.Entity, 'init', [x,y, {
 		return(new me.Rect(0, 0, 32, 64)).toPolygon();
 	}
 }]);
-this.health = game.data.enemyCreepHealth;
-this.alwaysUpdate = true;
-//Lets us know if the enemy is curretly attacking.
-this.attacking = false;
-//Keep track ofwhen or creep last attacks.
-this.lastAttacking = new Date().getTime();
-this.lastHit = new Date().getTime();
-this.now = new Date().getTime();
-this.body.setVelocity(3,20);
-this.type = "EnemyCreep";
+    this.health = game.data.enemyCreepHealth;
+    this.alwaysUpdate = true;
+    //Lets us know if the enemy is curretly attacking.
+    this.attacking = false;
+    //Keep track ofwhen or creep last attacks.
+    this.lastAttacking = new Date().getTime();
+    this.lastHit = new Date().getTime();
+    this.now = new Date().getTime();
+    this.body.setVelocity(3,20);
+    this.type = "EnemyCreep";
 
-this.renderable.addAnimation("walk",[3,4,5],80);
-this.renderable.setCurrentAnimation("walk");
+    this.renderable.addAnimation("walk",[3,4,5],80);
+    this.renderable.setCurrentAnimation("walk");
 	},
 
 	loseHealth: function(damage){

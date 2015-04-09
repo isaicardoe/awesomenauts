@@ -8,7 +8,7 @@ class Database {
 	private $password;
 	private $database;
 	public $error;
-// piece of code that can be reused again and again in substitution for the actual Class
+// pieces of code that can be reused again and again in substitution for the actual Class
 	public function __construct($host, $username, $password, $database){
 		$this->host = $host;
 		$this->username = $username;
@@ -23,7 +23,7 @@ class Database {
 	  $exists = $this->connection->select_db($database);
 	    
 	   if (!$exists) {
-	   	// Sends commands to the Databases
+	    // Sends commands to the Databases
 	   	$query = $this->connection->query("CREATE DATABASE $database");
 	    // Checks if the database has been created and outputs and echo saying so.
 	   	if ($query) {
@@ -33,7 +33,7 @@ class Database {
 	   }
 	}
 // Function that opens the connection
-// Afunction is a block of code that can be called at any point after it has been declared
+// A function is a block of code that can be called at any point after it has been declared
 	public function openConnection(){
 		$this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
 // Checks if their is an error, if so, echos it out.

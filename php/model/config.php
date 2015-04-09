@@ -9,7 +9,7 @@
 	// The varibles for $... from database.php to config.php to make it much easier to modify them
 	$host = "localhost";
  	$username = "root";
- 	$password = "";
+ 	$password = "root";
  	$database = "awesomenauts_db"; 
  	// If the session variable has not been set, then it will create the databse object and sets it to our session variable
  	if(!isset($_SESSION["connection"])){
