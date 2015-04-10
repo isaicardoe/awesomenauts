@@ -8,7 +8,7 @@ class Database {
 	private $password;
 	private $database;
 	public $error;
-// pieces of code that can be reused again and again in substitution for the actual Class
+        // pieces of code that can be reused again and again in substitution for the actual Class
 	public function __construct($host, $username, $password, $database){
 		$this->host = $host;
 		$this->username = $username;
@@ -32,16 +32,16 @@ class Database {
 	   	}
 	   }
 	}
-// Function that opens the connection
-// A function is a block of code that can be called at any point after it has been declared
+        // Function that opens the connection
+        // A function is a block of code that can be called at any point after it has been declared
 	public function openConnection(){
 		$this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
-// Checks if their is an error, if so, echos it out.
+        // Checks if their is an error, if so, echos it out.
  	if ($this->connection->connect_error) {
  		die("<p>Error: " . $this->connection->connect_error . "</p>");
  }
 	}
-// Fucntion to close the connection
+        // Fucntion to close the connection
 	public function closeConnection(){
 		// Checkis whether or not the variable has been set or not
 		if (isset($this->connection)) {
@@ -49,7 +49,7 @@ class Database {
 			$this->connection->close();
 		}
 	}
-// Creates a query
+        // Creates a query
 	public function query($string){
 		// Calls on the openConnection function which runs the lines of code in it.
 		// Basically, we opened the connection

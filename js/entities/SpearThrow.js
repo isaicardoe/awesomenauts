@@ -10,12 +10,12 @@ game.SpearThrow = me.Entity.extend({
 		return(new me.Rect(0, 0, 48, 48)).toPolygon();
 	}
 }]);
-this.alwaysUpdate = true;
-//Lets us know if the enemy is curretly attacking.
-this.body.setVelocity(8,0);
-this.attack = game.data.ability3*3;
-this.type = "spear";
-this.facing = facing;
+    this.alwaysUpdate = true;
+    //Lets us know if the enemy is curretly attacking.
+    this.body.setVelocity(8,0);
+    this.attack = game.data.ability3*3;
+    this.type = "spear";
+    this.facing = facing;
 	},
 
 	update: function(delta){

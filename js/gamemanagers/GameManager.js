@@ -8,7 +8,7 @@ game.ExperienceManager = Object.extend({
 			this.gameOver(true);
 		}else if (game.data.win === false && !this.gameOver) {
 			this.gameOver = false;
-			alert("YOU LOSE! SUCK IT");
+			alert("YOU LOSE! YOUR SORRY");
 		}
 
 		return true;
