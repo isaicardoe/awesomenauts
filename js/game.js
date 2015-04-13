@@ -69,7 +69,8 @@ var game = {
 	me.state.NEW = 114;
 
 	// Initialize the audio.
-	me.audio.init("mp3,King");
+	//me.audio.init("mp3,King");
+        me.audio.init("mp3,grind");
 	// Set a callback to run when loading is complete.
 	me.loader.onload = this.loaded.bind(this);
 	// Load the resources.

@@ -84,7 +84,6 @@ game.PlayerEntity = me.Entity.extend({
 		},
 
 			moveRight: function(){
-//makes it so that when the right key is pressed it makes the player go right
 				this.body.vel.x += this.body.accel.x * me.timer.tick;
 					this.facing = "right";
 					this.flipX(true); 
